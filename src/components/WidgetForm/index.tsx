@@ -39,6 +39,7 @@ export function WidgetForm() {
   const [feedbackSent, setFeedbackSent] = useState(false)
 
   function handleRestartFeedback() {
+    setFeedbackSent(false)
     setFeedbackType(null)
   }
 
@@ -47,7 +48,7 @@ export function WidgetForm() {
 
       { feedbackSent ? (
         // Fluxo de Sucesso = Feedback enviado
-        <FeedbackSuccessStep />
+        <FeedbackSuccessStep onFeedbackRestartRequested={handleRestartFeedback} />
       ) : (
         // Fluxo inicial = Realizando feedback 
         <>
